@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const uri = 'mongodb+srv://matiasng:GnXBcKvAIobg2Zv9@cluster0.4i9ha.mongodb.net/test';
+const mongodb_uri = 'mongodb+srv://matiasng:GnXBcKvAIobg2Zv9@cluster0.4i9ha.mongodb.net/test';
 const mongoose = require('mongoose');
 const leagueteam = require('./models/leagueteam');
 //Mongoose conection
 mongoose
-	.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+	.connect(mongodb_uri, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
 		console.log('Conectado!');
 	})
