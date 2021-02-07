@@ -3,7 +3,6 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const leagueteam = require('./models/leagueteam');
-//const MONGODB_URI = require('./config/database');
 const db = process.env.MONGODB_URI;
 //Mongoose conection
 mongoose
