@@ -23,6 +23,7 @@
   .content-table td {
     padding: 12px 15px;
     text-align: center;
+    text-transform: uppercase;
   }
   
   .content-table tbody tr {

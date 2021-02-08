@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const leagueteam = require('./models/leagueteam');
 const db = process.env.MONGODB_URI;
+
 //Mongoose conection
 mongoose
 	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
