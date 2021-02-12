@@ -1,0 +1,34 @@
+<div class="container text-center">
+  <h3>Posiciones Campeonato Uruguayo</h3>
+  <div class="table-responsive">
+    <table class="table content-table table-bordered">
+
+      <thead>
+        <tr>
+          <th>POS</th>
+          <th>CLUB</th>
+          <th>J</th>
+          <th>G</th>
+          <th>E</th>
+          <th>P</th>
+          <th>DG</th>
+          <th>PUNTOS</th>
+        </tr>
+      </thead>
+     
+      {{#each teams}}
+      <tr class= {{colorXpos this.pos}}>
+        <td>{{this.pos}}</td>
+        <td><img class="float-left" width="50" height="50" src={{this.escudo}} alt={{this.abr}}> <p>{{this.nombreClub}}</p>
+        </td>
+        <td>{{this.j}}</td>
+        <td>{{this.g}}</td>
+        <td>{{this.e}}</td>
+        <td>{{this.p}}</td>
+        <td>{{this.dg}}</td>
+        <td>{{this.pts}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
