@@ -3,13 +3,13 @@
 ////////////////////////////////////////////////
 const express = require('express');
 const path = require('path');
-const exphbs  = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const request = require('request-promise');
 const cheerio = require('cheerio');
 const mongoose = require('mongoose');
-const model = require('./models/leagueTeam');
-const db = process.env.MONGODB_URI;
-//const db = 'mongodb+srv://matiasng:GnXBcKvAIobg2Zv9@cluster0.4i9ha.mongodb.net/test?retryWrites=true&w=majority';
+const model = require('./models/teamStats');
+//const db = process.env.MONGODB_URI;
+const db = 'mongodb+srv://matiasng:GnXBcKvAIobg2Zv9@cluster0.4i9ha.mongodb.net/test?retryWrites=true&w=majority';
 const helpers = require('./helpers/helpers');
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
@@ -29,8 +29,6 @@ mongoose
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 
-
-
 ////////////////////////////////////////////////
 //Express config
 ////////////////////////////////////////////////
@@ -40,8 +38,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'));
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
-
-
 
 ////////////////////////////////////////////////
 //Handlebars config
@@ -58,10 +54,8 @@ app.set('view engine', 'hbs');
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 
-
-
- async function scraperTablaCampeonato() {
-	const result =  await request.get('https://defensorsporting.com.uy/tabla/tabla-anual/'); //Se guarda el de la página html en la variable result, mediante el await logramos sincronía de la petición.
+async function scraperTablaCampeonato() {
+	const result = await request.get('https://defensorsporting.com.uy/tabla/tabla-anual/'); //Se guarda el de la página html en la variable result, mediante el await logramos sincronía de la petición.
 
 	const $ = cheerio.load(result); //Retorna un objeto que puede usarse con una estructura similar a jQuery.
 
@@ -115,19 +109,16 @@ app.set('view engine', 'hbs');
 	//El upsert true permite al findOneAndUpdate hacer Save o Update según la existencia del documento
 	const options = { upsert: true };
 
-	
-	model.TeamStats.findOneAndUpdate({} ,teamData, options, function(err) {
+	model.TeamStats.findOneAndUpdate({}, teamData, options, function(err) {
 		if (err) {
-			console.log(err,'No se encontraron nuevos datos');
+			console.log(err, 'No se encontraron nuevos datos');
 		} else {
 			console.log('Nuevos datos almacenados/actualizados');
 		}
 	});
-};
+}
 
 scraperTablaCampeonato();
-
-
 
 ////////////////////////////////////////////////
 //Requests
@@ -136,16 +127,14 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
-app.get('/anual', (req, res) => {
-	TeamStats.findOne((err, teams) => {
+app.get('/anual', function(req, res) {
+	model.TeamStats.findOne(function(err, teamDoc) {
 		if (err) {
 			console.log('Error!', err);
 		}
 
-		const clubs = teams.team;
-
-		res.render('tablaAnual', { teams: clubs });
-	});
+		res.render('tablaAnual', { stats: teamDoc.team });
+	}).lean();
 });
 
 app.listen(app.get('port'), function() {

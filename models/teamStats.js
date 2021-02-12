@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Schema De Estadísticas de Equipo
-const TeamStatsSchema = new Schema({
+const teamStatsSchema = new Schema({
 	_id: String,
 	date: Date,
 	team: [
@@ -22,9 +22,9 @@ const TeamStatsSchema = new Schema({
 	]
 });
 
-const TeamStats = mongoose.model('LeagueTeams', TeamStatsSchema);
+const TeamStats = mongoose.model('TeamStats', teamStatsSchema);
 
 
 
 // Model basado en el teamStatsSchema.
-module.exports = {TeamStats : TeamStats, Schema: TeamStatsSchema};
+module.exports = {TeamStats : TeamStats, Schema: teamStatsSchema};
