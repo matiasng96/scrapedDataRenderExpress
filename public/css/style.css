@@ -1,55 +1,112 @@
-* {
-    font-family: sans-serif; /* Change your font family */
-  }
-  
-  .content-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .content-table thead tr {
-    background-color: #2da2f0;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-  }
-  
-  .content-table th,
-  .content-table td {
-    padding: 12px 15px;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-  
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  color: aliceblue;
+  line-height: 1.6;
+}
+
+#home{
+  background-image: url('../img/6b3eb40f-pelota-amistosos.jpg');
+  background-size:cover;
+  background-position:center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#home h1 {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+#home p {
+  font-size: 20px;
+}
+
+#home .button {
+  font-size: 18px;
+  text-decoration: none;
+  color: aliceblue;
+  border: aliceblue 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+}
+
+#home .button:hover {
+  background-color: #03d3fc;
+  transition: background-color .5s;
+}
+
+#anual {
+
+  background-image: url('../img/homeBox.jpg');
+  background-size:cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+
+}
+
+#anual h1 {
  
-  .content-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
   
-  .content-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-  }
+  font-size: 40px;
+  line-height: 1.2;
+  text-shadow: 5px 5px #558ABB;
+}
 
-  h3 {
-    font-family: 'Source Sans Pro', sans-serif;
-  }
+.content-table {
+  border-collapse: collapse;
+  background-color: #89D1FE;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
 
-  .top4 {
+.content-table thead tr {
+  background-color: rgb(189, 166, 38);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+  color: black;
+}
+
+
+
+.top4 {
     border: 3px solid rgb(24, 114, 24);
   }
 
-  .last4 {
+.last4 {
     border: 3px solid rgb(194, 33, 33);
   }
 
-  .halfTable {
+.halfTable {
     border: 3px solid rgb(119, 124, 119);
   }
 
@@ -59,5 +116,7 @@
     height: auto;
 
   }
+
+
 
 

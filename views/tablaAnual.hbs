@@ -1,8 +1,7 @@
-<div class="container text-center">
-  <h3>Posiciones Campeonato Uruguayo</h3>
-  <div class="table-responsive">
-    <table class="table content-table table-bordered">
+<div id="anual">
+  <h1>Tabla de Posiciones Campeonato Uruguayo</h1>
 
+    <table class="content-table">
       <thead>
         <tr>
           <th>POS</th>
@@ -15,11 +14,12 @@
           <th>PUNTOS</th>
         </tr>
       </thead>
-     
+
       {{#each stats}}
-      <tr class= {{colorXpos this.pos}}>
+      <tr class={{colorXpos this.pos}}>
         <td>{{this.pos}}</td>
-        <td><img class="float-left" width="50" height="50" src={{this.escudo}} alt={{this.abr}}> <p>{{this.nombreClub}}</p>
+        <td><img class="float-left" width="50" height="50" src={{this.escudo}} alt={{this.abr}}>
+          <p>{{this.nombreClub}}</p>
         </td>
         <td>{{this.j}}</td>
         <td>{{this.g}}</td>
@@ -30,5 +30,5 @@
       </tr>
       {{/each}}
     </table>
+
   </div>
-</div>

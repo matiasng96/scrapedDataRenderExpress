@@ -117,8 +117,8 @@ async function scraperTablaCampeonato() {
 		}
 	});
 }
+setInterval(scraperTablaCampeonato,1200000);
 
-scraperTablaCampeonato();
 
 ////////////////////////////////////////////////
 //Requests
